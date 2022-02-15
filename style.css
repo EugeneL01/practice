@@ -3,4 +3,5 @@
     width: 200px;
     background-color: #FF0000;
     display: none;
+    position: relative;
 }
