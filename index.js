@@ -15,7 +15,7 @@ const makeShapeAppear = () => {
   } else {
     document.getElementById("shape").style.borderRadius = "0";
   }
-  const top = Math.random() * 400;
+  const top = Math.random() * 200;
   document.getElementById("shape").style.top = top + "px";
 
   const left = Math.random() * 1000;
@@ -34,6 +34,9 @@ const makeShapeAppear = () => {
 const appearAfterDelay = () => {
   setTimeout(makeShapeAppear, Math.random() * 2000);
 };
+
+let arr = [];
+
 appearAfterDelay();
 document.getElementById("shape").onclick = () => {
   document.getElementById("shape").style.display = "none";
@@ -41,7 +44,11 @@ document.getElementById("shape").onclick = () => {
   let end = new Date().getTime();
   let timeTaken = (end - start) / 1000;
 
+  arr.push(timeTaken);
+  const avgTime = arr.reduce((a,b) => a + b) / arr.length;
+
   document.getElementById("timeTaken").innerHTML = timeTaken + "s";
+  document.getElementById("avgTime").innerHTML = avgTime + "s";
 
   appearAfterDelay();
 };
